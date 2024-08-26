@@ -1,122 +1,148 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: #000; /* Black background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
 
-      body,
-      html {
-        margin: 0;
-        padding: 0;
-        height: 100%;
-        background-color: #000000; /* Black background */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        overflow: hidden;
-        z-index: -1;
-      }
+#particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
 
-      #particles-js {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-      }
+.card-container {
+  position: relative;
+  width: 80%; /* Changed from fixed width */
+  max-width: 400px; /* Max width for larger screens */
+  height: auto; /* Height auto for responsiveness */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 35px; /* Rounded corners */
+  transition: box-shadow 0.3s ease-in-out; /* Smooth transition for glow */
+}
 
-      .card-container {
-        position: relative;
-        width: 300px;
-        height: 300px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        /* border: 2px solid #0366d6; GitHub Blue border */
-        border-radius: 35px; /* Rounded corners */
-        transition: box-shadow 0.3s ease-in-out; /* Smooth transition for glow */
-      }
+.card {
+  position: absolute;
+  width: 90%;
+  text-align: center;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  border-radius: 35px;
+  background-color: #1e1e1e; /* Dark Gray for cards */
+}
 
-      .card {
-        position: absolute;
-        width: 90%;
+.profile-card {
+  z-index: 2; /* Top card */
+  height: auto; /* Height auto for responsiveness */
+  border: 2px solid #3c2a40; /* GitHub Blue border */
+}
 
-        text-align: center;
-        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-        border-radius: 35px;
-        background-color: #1e1e1e; /* Dark Gray for cards */
-      }
+.social-card {
+  z-index: 1; /* Bottom card */
+  top: 50px; /* Initially slightly out of view */
+  opacity: 0; /* Initially invisible */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto; /* Height auto for responsiveness */
+  border: 2px solid #0366d6;
+}
 
-      .profile-card {
-        z-index: 2; /* Top card */
-        height: 250px;
-        border: 2px solid #3c2a40; /* GitHub Blue border */
-      }
+.profile-img {
+  width: 100%;
+  height: auto; /* Responsive image */
+  border-radius: 35px;
+  transition: box-shadow 0.3s ease-in-out;
+}
 
-      .social-card {
-        z-index: 1; /* Bottom card */
-        top: 50px; /* Initially slightly out of view */
-        opacity: 0; /* Initially invisible */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 200px;
-        border: 2px solid #0366d6;
-      }
+.social-icons {
+  display: flex;
+  padding-top: 10px; /* Adjusted for responsiveness */
+  justify-content: space-around;
+  width: 100%;
+}
 
-      .profile-img {
-        width: 100%;
-        height: 100%;
-        border-radius: 35px;
+.social-link {
+  width: 40px;
+  height: 40px;
+  background-size: cover;
+  border-radius: 30%;
+  transition: box-shadow 0.3s ease-in-out;
+}
 
-        transition: box-shadow 0.3s ease-in-out;
-      }
+.social-link.github {
+  background-image: url("https://img.icons8.com/glyph-neue/64/FFFFFF/github.png");
+  background-color: #7c72ff; /* GitHub Purple */
+}
 
-      .social-icons {
-        display: flex;
-        padding-top: 110px;
-        justify-content: space-around;
-        width: 100%;
-      }
+.social-link.linkedin {
+  background-image: url("https://img.icons8.com/sf-black-filled/50/FFFFFF/linkedin.png");
+  background-color: #0077b5; /* LinkedIn Blue */
+}
 
-      .social-link {
-        width: 40px;
-        height: 40px;
-        background-size: cover;
-        border-radius: 30%;
-        transition: box-shadow 0.3s ease-in-out;
-      }
+.social-link.instagram {
+  background-image: url("https://img.icons8.com/sf-regular/48/FFFFFF/instagram-new.png");
+  background-color: #833ab4; /* Instagram Purple */
+}
 
-      .social-link.github {
-        background-image: url("https://img.icons8.com/glyph-neue/64/FFFFFF/github.png");
-        background-color: #7c72ff; /* GitHub Purple */
-      }
+.social-link.github:hover {
+  box-shadow: 0 0 15px #0366d6; /* GitHub glow on hover */
+}
+.social-link.linkedin:hover {
+  box-shadow: 0 0 15px #0077b5; /* LinkedIn glow on hover */
+}
+.social-link.instagram:hover {
+  box-shadow: 0 0 15px #833ab4; /* Instagram glow on hover */
+}
 
-      .social-link.linkedin {
-        background-image: url("https://img.icons8.com/sf-black-filled/50/FFFFFF/linkedin.png");
-        background-color: #0077b5; /* LinkedIn Blue */
-      }
+.card-container:hover .profile-card {
+  transform: translateY(-50px); /* Move the profile card up */
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5); /* Floating shadow */
+}
 
-      .social-link.instagram {
-        background-image: url("https://img.icons8.com/sf-regular/48/FFFFFF/instagram-new.png");
-        background-color: #833ab4; /* Instagram Purple */
-      }
+.card-container:hover .social-card {
+  transform: translateY(50px); /* Move the social card down */
+  opacity: 1; /* Fade in the social card */
+}
 
-      .social-link.github:hover {
-        box-shadow: 0 0 15px #0366d6; /* GitHub glow on hover */
-      }
-      .social-link.linkedin:hover {
-        box-shadow: 0 0 15px #0077b5; /* LinkedIn glow on hover */
-      }
-      .social-link.instagram:hover {
-        box-shadow: 0 0 15px #833ab4; /* Instagram glow on hover */
-      }
+.social-card {
+  background-color: #1e1e1e; /* Dark Gray for social card */
+  opacity: 0; /* Initially hidden */
+}
 
-      .card-container:hover .profile-card {
-        transform: translateY(-50px); /* Move the profile card up */
-        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5); /* Floating shadow */
-      }
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+  .card-container {
+    width: 90%; /* Adjust width for smaller screens */
+  }
 
-      .card-container:hover .social-card {
-        transform: translateY(50px); /* Move the social card down */
-        opacity: 1; /* Fade in the social card */
-      }
+  .social-icons {
+    padding-top: 5px; /* Adjust padding for smaller screens */
+  }
 
-      .social-card {
-        background-color: #1e1e1e; /* Dark Gray for social card */
-        opacity: 0; /* Initially hidden */
-      }
+  .social-link {
+    width: 30px; /* Smaller icons for smaller screens */
+    height: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .card-container {
+    flex-direction: column; /* Stack cards on smaller screens */
+    height: auto; /* Auto height for smaller screens */
+  }
+
+  .profile-card {
+    height: auto; /* Responsive height */
+  }
+
+  .social-card {
+    top: 20px; /* Adjust positioning */
+  }
+}
